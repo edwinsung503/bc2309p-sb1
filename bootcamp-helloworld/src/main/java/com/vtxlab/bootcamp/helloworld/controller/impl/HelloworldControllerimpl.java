@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.vtxlab.bootcamp.helloworld.HelloworlController;
-import model.Cat;
-import model.Dog;
+import com.vtxlab.bootcamp.helloworld.model.Cat;
+import com.vtxlab.bootcamp.helloworld.model.Dog;
 
 //@Controller // -> 配對 @GetMapping 
 //@ResponseBody 

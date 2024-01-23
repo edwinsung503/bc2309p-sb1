@@ -1,4 +1,4 @@
-package model;
+package com.vtxlab.bootcamp.helloworld.model;
 
 import java.util.List;
 import lombok.AllArgsConstructor;

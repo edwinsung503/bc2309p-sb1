@@ -1,4 +1,4 @@
-package model;
+package com.vtxlab.bootcamp.helloworld.model;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

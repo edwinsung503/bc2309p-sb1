@@ -1,8 +1,8 @@
-package service.impl;
+package com.vtxlab.bootcamp.helloworld.service.impl;
 
 import org.springframework.stereotype.Service;
-import model.Database;
-import service.DatabaseService;
+import com.vtxlab.bootcamp.helloworld.model.Database;
+import com.vtxlab.bootcamp.helloworld.service.DatabaseService;
 
 @Service
 public class DatabaseServiceimpl implements DatabaseService {

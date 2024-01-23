@@ -1,8 +1,8 @@
 package com.vtxlab.bootcamp.helloworld;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import model.Cat;
-import model.Dog;
+import com.vtxlab.bootcamp.helloworld.model.Cat;
+import com.vtxlab.bootcamp.helloworld.model.Dog;
 
 public interface HelloworlController {
 

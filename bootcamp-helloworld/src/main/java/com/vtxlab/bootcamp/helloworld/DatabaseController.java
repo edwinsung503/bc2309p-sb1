@@ -10,8 +10,7 @@ public interface DatabaseController {
   //如果入string -> 會爆
 
   @GetMapping(value = "/db/idx/{idx}/name/{name}")
-  void setName (@PathVariable(name = "idx") int index,//
-    @PathVariable(name = "name") String name);
-
+  void setName(@PathVariable(name = "idx") int index, //
+      @PathVariable String name);
   
 }

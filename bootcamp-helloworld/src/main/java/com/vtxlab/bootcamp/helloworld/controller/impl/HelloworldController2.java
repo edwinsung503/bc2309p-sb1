@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import model.Dog;
-import model.Fish;
+import com.vtxlab.bootcamp.helloworld.model.Dog;
+import com.vtxlab.bootcamp.helloworld.model.Fish;
 
 @Controller
 @ResponseBody

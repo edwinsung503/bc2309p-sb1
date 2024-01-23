@@ -1,4 +1,4 @@
-package model;
+package com.vtxlab.bootcamp.helloworld.model;
 
 public class Database {
   

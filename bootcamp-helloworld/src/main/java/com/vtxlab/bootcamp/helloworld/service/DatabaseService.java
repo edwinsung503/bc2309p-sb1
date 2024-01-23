@@ -1,4 +1,4 @@
-package service;
+package com.vtxlab.bootcamp.helloworld.service;
 
 public interface DatabaseService {
 
