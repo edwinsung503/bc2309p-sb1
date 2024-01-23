@@ -1,4 +1,4 @@
-package com.vtxlab.bootcamp.bootcamphelloworld.controller;
+package com.vtxlab.bootcamp.helloworld.controller.impl;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.vtxlab.bootcamp.bootcamphelloworld.controller;
+package com.vtxlab.bootcamp.helloworld.controller.impl;
 
 import java.util.ArrayList;
 import java.util.List;
