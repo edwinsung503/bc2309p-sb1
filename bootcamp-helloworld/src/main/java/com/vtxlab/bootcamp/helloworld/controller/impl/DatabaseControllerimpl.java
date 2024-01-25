@@ -1,5 +1,8 @@
 package com.vtxlab.bootcamp.helloworld.controller.impl;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +26,13 @@ public class DatabaseControllerimpl implements DatabaseController{
   private DatabaseService databaseService ; // interface
   //step 2 (before server start)
   //autowired will check if there is any object CAN be injected into DatabaseService(interface)
+  // 只可以裝1object -> 1個impl + 1個service
+  //private DatabaseServiceImpl databaseService ; 如果係咁會依靠人地的denpendcy
+  //因為autowired 會自己揾
+  // 因為好少用2個interface -> too complciated
 
+
+  // mock databaseService.getName(index) -> "abc";
   @Override
   public String getName (int index){
     return databaseService.getName(index);
@@ -31,7 +40,20 @@ public class DatabaseControllerimpl implements DatabaseController{
 
   @Override
   public void setName (int index, String name){
+    String n = name == null ? "xxx" : name;
     databaseService.setName(index, name);
   }
   
+  @Override
+  public List<String> getNames(int fromIdx, int toIdx){
+    //change from array to list
+    return Arrays.stream(databaseService.getNames(fromIdx,toIdx))//
+      .collect(Collectors.toList());
+  }
+
+  @Override
+  public void updateName (int index, String name){
+    String n = name == null ? "xxx" : name;
+    databaseService.setName(index, name);
+  }
 }

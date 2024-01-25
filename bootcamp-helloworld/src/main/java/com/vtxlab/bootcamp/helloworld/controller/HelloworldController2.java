@@ -1,4 +1,4 @@
-package com.vtxlab.bootcamp.helloworld.controller.impl;
+package com.vtxlab.bootcamp.helloworld.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.vtxlab.bootcamp.helloworld.controller.impl.HelloworldControllerimpl;
 import com.vtxlab.bootcamp.helloworld.model.Dog;
 import com.vtxlab.bootcamp.helloworld.model.Fish;
 
 @Controller
 @ResponseBody
 @RequestMapping( value ="/api/v2")
-public class HelloworldController2 {
+public class HelloworldController2 extends HelloworldControllerimpl{//會有HelloworldControllerimpl 6 個api
   @GetMapping("/helloworld")
   public String helloworld(){
     return "helloworld. Version 2";
