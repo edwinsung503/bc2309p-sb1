@@ -11,15 +11,13 @@ public class Database {
   static {
     strings[0] = "Peter";
     strings[1] = "John";
-    strings[2] = "Mary";
-    strings[3] = "Alex";
   }
 
   public static void setString (int index, String string) {
     if ( index < 0 || index > dbLength - 1) 
       throw new IllegalArgumentException();
-      strings[index] = string;
-    }
+    strings[index] = string;
+  }
 
   public static String getString (int index) {
     if ( index < 0 || index > dbLength - 1) 
@@ -32,9 +30,9 @@ public class Database {
     toIdx < 0 || toIdx > dbLength - 1 || //
     fromIdx > toIdx  ) 
       throw new IllegalArgumentException();
-    String [] names = new String[toIdx - fromIdx  ] ;
+    String [] names = new String[toIdx - fromIdx + 1] ;
     int idx = 0;
-    for (int i= fromIdx ; i< toIdx ; i++){
+    for (int i= fromIdx ; i< toIdx + 1; i++){
       names[idx++] = strings[i];
     }
     return names;

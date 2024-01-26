@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.vtxlab.bootcamp.helloworld.DatabaseController;
+import com.vtxlab.bootcamp.helloworld.controller.DatabaseController;
 import com.vtxlab.bootcamp.helloworld.service.DatabaseService;
 import com.vtxlab.bootcamp.helloworld.service.impl.DatabaseServiceimpl;
 
@@ -45,9 +45,9 @@ public class DatabaseControllerimpl implements DatabaseController{
   }
   
   @Override
-  public List<String> getNames(int fromIdx, int toIdx){
+  public List<String> getNames(int fromIndex, int toIndex){
     //change from array to list
-    return Arrays.stream(databaseService.getNames(fromIdx,toIdx))//
+    return Arrays.stream(databaseService.getNames(fromIndex,toIndex))//
       .collect(Collectors.toList());
   }
 

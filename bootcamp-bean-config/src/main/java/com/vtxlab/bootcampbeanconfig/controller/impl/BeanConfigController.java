@@ -11,10 +11,10 @@ import com.vtxlab.bootcampbeanconfig.controller.BeanConfigOperation;
 public class BeanConfigController implements BeanConfigOperation {
   
   @Autowired
-  private CharSequence superman;
+  private String superman;
 
   @Override
-  public CharSequence getSuperman(){
+  public String getSuperman(){
     return this.superman;
   }
   

@@ -1,4 +1,4 @@
-package com.vtxlab.bootcamp.helloworld;
+package com.vtxlab.bootcamp.helloworld.controller;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +10,9 @@ public interface DatabaseController {
      //1.RequestParm & PathVariable to support Controller input params
      //2.property: required, defaultValue
      //3.URI has to be unquie(including the Path Variable)
-  //@GetMapping(value = {"/db/idx/{idx}", "/db/idx"}) // part varaible
-  //String getName (@PathVariable(name = "idx", required = false) int index);
-//--> 可能要
+     //@GetMapping(value = {"/db/idx/{idx}", "/db/idx"}) // part varaible
+     //String getName (@PathVariable(name = "idx", required = false) int index);
+     //--> 可能要
 
   @GetMapping(value ="/db/idx/{idx}") // part varaible
   String getName (@PathVariable(name = "idx") int index);

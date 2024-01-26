@@ -3,7 +3,7 @@ package com.vtxlab.bootcampbeanconfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// @SpringBootApplication = @ComponentScan + @EnableAutoCOnfiguration + @ EnableAutoCOnfiguration
+// @SpringBootApplication = @ComponentScan + @SpringBootConfiguration + @EnableAutoConfiguration 
 
 @SpringBootApplication
 public class BootcampBeanConfigApplication {

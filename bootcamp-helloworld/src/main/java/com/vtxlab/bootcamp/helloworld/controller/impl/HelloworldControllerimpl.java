@@ -56,9 +56,7 @@ public class HelloworldControllerimpl implements HelloworlController {
     descriptions.add("John");
     descriptions.add("Mary");
     descriptions.add("Peter");
-    Cat cat = new Cat("mary",descriptions);
-    
-
+    Cat cat = new Cat("Mary",descriptions);
     return cat;
   }
 

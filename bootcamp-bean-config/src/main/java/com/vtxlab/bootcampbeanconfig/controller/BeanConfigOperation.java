@@ -5,5 +5,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface BeanConfigOperation {
 
   @GetMapping(value = "/superman")
-  CharSequence getSuperman();
+  String getSuperman();
 }
