@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Configuration;
 //step 1.5 變成object 放入垃圾筒
 public class AppConfig {
   
-  @Bean
+  @Bean(name = "superm")
   String superman() {
     return  "Superman!!!"; // create a String object 放入垃圾筒 as a Bean
   }
-  @Bean
+  @Bean(name = "supern")
   String superwomen(){
     return "Superwomen!!!";
   }

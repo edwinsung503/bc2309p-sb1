@@ -1,6 +1,7 @@
 package com.vtxlab.bootcampbeanconfig.controller.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.vtxlab.bootcampbeanconfig.controller.BeanConfigOperation;
@@ -10,7 +11,8 @@ import com.vtxlab.bootcampbeanconfig.controller.BeanConfigOperation;
 @RequestMapping(value ="api/v1")
 public class BeanConfigController implements BeanConfigOperation {
   
-  @Autowired
+  @Autowired // dec injection
+  @Qualifier(value = "supern")
   private String superman;
 
   @Override
