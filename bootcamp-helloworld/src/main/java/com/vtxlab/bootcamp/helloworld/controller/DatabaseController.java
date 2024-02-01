@@ -30,6 +30,8 @@ public interface DatabaseController {
                         @RequestParam(value="toIdx")  int toIndex);
      //@RequestParam 是一个用于处理HTTP请求参数的Spring注解。它将请求参数绑定到你的控制器方法参数上。
      //例如，在一个HTTP GET请求中，你可以使用@RequestParam注解获取查询参数的值。
+     //參數係來自user
+     //if the form 有好多paramter 要填->用RequestParam 
 
      ///api/v1/db/idx/2?name=Mary
      @GetMapping(value = "/db/update/idx/{idx}")
