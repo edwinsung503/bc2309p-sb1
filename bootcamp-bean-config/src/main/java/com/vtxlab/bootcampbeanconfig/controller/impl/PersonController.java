@@ -2,6 +2,9 @@ package com.vtxlab.bootcampbeanconfig.controller.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.vtxlab.bootcampbeanconfig.controller.PersonOperation;
@@ -40,17 +43,17 @@ public class PersonController implements PersonOperation {
   }
 
   @Override
-  public Person updatePerson(int index, Person person){
-    return personService.updatPerson(index, person);
+  public Person updatePerson(int idx, Person person){
+    return personService.updatPerson(idx, person);
   }
 
   @Override
-  public Person patchPersonName(int index,String name){
-    return personService.patchPersonName(index, name);
+  public Person patchPersonName(int idx,String name){
+    return personService.patchPersonName(idx, name);
   }
 
   @Override
-  public Person patchPersonAge(int index, int age){
-    return personService.patchPersonAge(index, age);
+  public Person patchPersonAge(int idx, int age){
+    return personService.patchPersonAge(idx, age);
   }
 }

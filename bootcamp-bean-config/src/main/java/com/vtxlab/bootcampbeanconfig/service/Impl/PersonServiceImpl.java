@@ -34,8 +34,7 @@ public class PersonServiceImpl implements PersonService {
 
   @Override
   public Person updatPerson(int index, Person person){
-    PersonDatabase.getPersons().set(index, person);
-    return person;
+    return PersonDatabase.getPersons().set(index, person);
   }
 
   @Override

@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @Data
+//generates boilerplate code such as 
+//getters and setters, equals(), hashCode(), and toString() methods
 @NoArgsConstructor
 @Builder
 public class Person {

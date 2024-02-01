@@ -13,6 +13,8 @@ public class BeanConfigController implements BeanConfigOperation {
   
   @Autowired // dec injection
   @Qualifier(value = "supern")
+  //allows you to specify exactly 
+  //which bean should be wired to a field 
   private String superman;
 
   @Override

@@ -18,20 +18,24 @@ public interface PersonOperation {
   @GetMapping(value = "/person/{idx}")
   Person getPerson(@PathVariable (name="idx") int index);
   
+  //create a new resource.
   @PostMapping(value = "/person")
   Person createPerson(@RequestBody Person person);//Object 睇成person
 
   @DeleteMapping(value = "/person/{idx}")
   Boolean deletePerson (@PathVariable (name ="idx") int index);
 
+  //update or replace an existing resource. 
   @PutMapping(value = "/person/{idx}")
-  Person updatePerson (@PathVariable int index, @RequestBody Person person);
+  Person updatePerson (@PathVariable int idx, @RequestBody Person person);
+  //@RequestBody: read the body content of the request and deserialize it into an object
 
+  //apply partial modifications to a resource.
   @PatchMapping(value = "/person/{idx}/name/{name}")//存在先update 佢
-  Person patchPersonName (@PathVariable int index, @PathVariable String name);
+  Person patchPersonName (@PathVariable int idx, @PathVariable String name);
 
-  @PatchMapping(value = "/person/{idx}/age/{age}")//存在先update 佢
-  Person patchPersonAge (@PathVariable int index, @PathVariable int age);
+  @PatchMapping(value = "/person/{idx}/age/{age}")
+  Person patchPersonAge (@PathVariable int idx, @PathVariable int age);
 
 
 }
