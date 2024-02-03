@@ -1,1 +1,10 @@
 
+# String targetUrl = "https://jsonplaceholder.typicode.com/users";
+
+api: 
+  jsonplaceholder:
+    domain: "jsonplaceholder.typicode.com"
+    endpoints: 
+      users: "/users"
+      posts: "/posts"
+  
