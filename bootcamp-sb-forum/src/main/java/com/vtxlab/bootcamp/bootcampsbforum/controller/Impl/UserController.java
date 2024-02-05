@@ -22,15 +22,12 @@ public class UserController implements UserOperation {
     return userService.getUsers();
   }
 
-  @Override
-  public User getUser(int userId ){
-    return userService.getUsers().stream()
-    .filter(e -> e.getId() == userId)
-    .findFirst()
-    .orElse(null);
-  }
-
-
-
+  //@Override
+  //public User getUser(int userId ){
+  //  return userService.getUsers().stream()
+  //  .filter(e -> e.getId() == userId)
+  //  .findFirst()
+  //  .orElse(null);
+  //}
 
 }

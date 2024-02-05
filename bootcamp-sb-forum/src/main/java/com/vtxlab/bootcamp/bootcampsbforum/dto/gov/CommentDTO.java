@@ -9,5 +9,6 @@ public class CommentDTO {
 
   private int postId;
   private int id;
+  private String body;
   
 }

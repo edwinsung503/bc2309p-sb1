@@ -1,6 +1,5 @@
 package com.vtxlab.bootcamp.bootcampsbforum.infra;
 
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter

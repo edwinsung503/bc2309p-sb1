@@ -27,9 +27,9 @@ public class CommentJPHServiceHolder implements CommentService {
     RestTemplate restTemplate = new RestTemplate();
       String url = BcUtil.getUrl(Scheme.HTTPS, domain, commentsUri);
 
-      Comment[] posts = restTemplate.getForObject(url, Comment[].class);
+      Comment[] comments = restTemplate.getForObject(url, Comment[].class);
 
-      return Arrays.stream(posts)
+      return Arrays.stream(comments)
         .collect(Collectors.toList());
   }
 
