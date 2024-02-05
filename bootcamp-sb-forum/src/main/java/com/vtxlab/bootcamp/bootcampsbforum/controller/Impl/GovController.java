@@ -8,11 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.vtxlab.bootcamp.bootcampsbforum.controller.GovOperation;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.UserCommentDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.UserPostDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.mapper.GovMapper;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.ApiResponse;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.Syscode;
+import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Comment;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Post;
+import com.vtxlab.bootcamp.bootcampsbforum.service.CommentService;
 import com.vtxlab.bootcamp.bootcampsbforum.service.PostService;
 import com.vtxlab.bootcamp.bootcampsbforum.service.UserService;
 
@@ -25,6 +28,9 @@ public class GovController implements GovOperation {
 
   @Autowired
   private PostService postService;
+
+  @Autowired
+  private CommentService commentService;
 
   @Override
   public ResponseEntity<ApiResponse<UserPostDTO>> getUserPostDTO(int userId) {
@@ -56,6 +62,12 @@ public class GovController implements GovOperation {
   //gov 指定要某一個user 的comment 拎哂出來
   @Override
   public UserPostDTO getUserCommentDTO(int userId) {
+    Optional<UserPostDTO> userPostDTO = userService.getUsers().stream() //
+        .filter(e -> e.getId() == userId) //
+        .map(e -> {
+          List<Comment> comments = commentService.getPosts();
+          return GovMapper.map(e, comments);
+        }).findFirst();
     return null;
   }
 

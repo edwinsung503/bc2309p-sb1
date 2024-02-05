@@ -2,15 +2,18 @@ package com.vtxlab.bootcamp.bootcampsbforum.dto.gov.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.CommentDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.PostDTO;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.UserCommentDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.UserPostDTO;
+import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Comment;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Post;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
 
 public class GovMapper {
 
   public static UserPostDTO map(User user, List<Post> posts) {
-
+    //入個userID 
     List<PostDTO> postDTOs = posts.stream() //
         .filter(p -> p.getUserId() == user.getId()) //
         .map(p -> {
@@ -60,6 +63,24 @@ public class GovMapper {
     //Finally, `.build()` is called to return the created `UserPostDTO` object. 
     //This method is always the last method called in the builder pattern. 
     //It returns the constructed object after all the properties have been set.
+  }
+  //gov 指定要某一個user 的comment 拎哂出來
+  public static UserCommentDTO map1(User user, List<Comment> comments) {
+    List<CommentDTO> commentDTOs = comments.stream() //
+        .filter(p -> p.getId() == user.getId()) //
+        .map(p -> {
+          return CommentDTO.builder()
+            .body(p.getBody())
+            .build();
+        }).collect(Collectors.toList());
+
+    return UserCommentDTO.builder() //
+      .id(user.getId()) //
+      .username(user.getName())
+      .email(user.getEmail()) //
+      .phone(user.getPhone()) //
+      .commentDTOs(commentDTOs) //
+      .build();
   }
 
 }
