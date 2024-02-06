@@ -3,6 +3,7 @@ package com.vtxlab.bootcamp.bootcampsbforum.service.Impl;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -21,10 +22,13 @@ public class UserJPHServiceHolder implements UserService{
   @Value("${api.jsonplaceholder.endpoints.users}")
   private String usersUri;
 
+  @Autowired
+  private RestTemplate restTemplate;
+
   @Override
   public List<User> getUsers(){
     
-    RestTemplate restTemplate = new RestTemplate();
+    //RestTemplate restTemplate = new RestTemplate();
     // It simplifies the communication with HTTP servers and handles the conversion of HTTP responses to Java objects. 
     //String targetUrl = "https://jsonplaceholder.typicode.com/users";
     //call API 
@@ -34,8 +38,9 @@ public class UserJPHServiceHolder implements UserService{
     // 變左做object -> 可以用java 去做想做的野
     String url = BcUtil.getUrl(Scheme.HTTPS,domain, usersUri);
     User[] users = restTemplate.getForObject( url, User[].class);// return a user array -> User[].class
-    //if return obejct -> User.class
-
+    //if return obejct -> User.class 
+    //因為runtime exception-> 所以唔使打throw exception-> restclientexception
+    //要諗哂所有可能性-> 做測試後要寫相關exception? 要做D 什麼
     //array to List
     return Arrays.stream(users)
       .collect(Collectors.toList());

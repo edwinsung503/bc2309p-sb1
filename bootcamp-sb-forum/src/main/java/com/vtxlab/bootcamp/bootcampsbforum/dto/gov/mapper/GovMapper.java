@@ -11,7 +11,7 @@ import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Post;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
 
 public class GovMapper {
-
+  //map 返自身object 
   public static UserPostDTO map(User user, List<Post> posts) {
     //入個userID 
     //This Java code snippet is using the Stream API 
@@ -59,23 +59,23 @@ public class GovMapper {
   //gov 指定要某一個user 的comment 拎哂出來
 
   
-  //public static UserCommentDTO map1(User user, List<Comment> comments) {
-   // List<CommentDTO> commentDTOs = comments.stream() //
-   //     .filter(p -> p.getId() == user.getId() ) //
-   //    .map(p -> {
-   //       return CommentDTO.builder()
-   //         .body(p.getBody())
-  //        .build();
-  //      }).collect(Collectors.toList());
+  public static UserCommentDTO map1(User user, List<Comment> comments) {
+    List<CommentDTO> commentDTOs = comments.stream() //
+        .filter(p -> p.getId() == user.getId() ) //
+       .map(p -> {
+          return CommentDTO.builder()
+            .body(p.getBody())
+          .build();
+        }).collect(Collectors.toList());
 
-    ///return UserCommentDTO.builder() //
-     // .id(user.getId()) //
-     // .username(user.getName())
-      //.email(user.getEmail()) //
-      //.phone(user.getPhone()) //
-      //.commentDTOs(commentDTOs) //
-      //.build();
-  // }
+    return UserCommentDTO.builder() //
+      .id(user.getId()) //
+      .username(user.getName())
+      .email(user.getEmail()) //
+      .phone(user.getPhone()) //
+      .commentDTOs(commentDTOs) //
+      .build();
+   }
 
 }
 

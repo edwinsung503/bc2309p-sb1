@@ -18,7 +18,7 @@ public class CommentJPHServiceHolder implements CommentService {
   private String domain;
   
   
-  @Value("${api.jsonplaceholder.endpoints.users}")
+  @Value("${api.jsonplaceholder.endpoints.comments}")
   private String commentsUri;
 
   @Override

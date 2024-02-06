@@ -14,3 +14,4 @@ public class UserPostDTO {
   private String phone;
   private List<PostDTO> postDTOs;
 }   
+//DTO: data transfer object

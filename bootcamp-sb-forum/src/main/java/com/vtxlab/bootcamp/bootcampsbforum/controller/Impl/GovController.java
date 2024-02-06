@@ -34,8 +34,9 @@ public class GovController implements GovOperation {
   private CommentService commentService;
 
   @Override
-  public ResponseEntity<ApiResponse<UserPostDTO>> getUserPostDTO(int userId) {
-    Optional<UserPostDTO> userPostDTO = userService.getUsers().stream() //
+  //controller 係用來轉換
+  public ApiResponse<UserPostDTO> getUserPostDTO(int userId) {
+    UserPostDTO userPostDTO = userService.getUsers().stream() //
         //This gets a stream of users from the user service.
         .filter(e -> e.getId() == userId) //
         //This filters the stream to only include the user matching the userId that was passed in.
@@ -45,28 +46,20 @@ public class GovController implements GovOperation {
         //This transforms the filtered user into a UserPostDTO object. 
         //It does this by first retrieving a list of posts from the postService. 
         //Then, it uses the GovMapper.map method to transform the user and their associated posts into a UserPostDTO.
-        }).findFirst();
+        }).findFirst()
+        .orElseThrow( ()-> new RuntimeException()); // 揾唔到就throw 出去
 
-    ApiResponse<UserPostDTO> apiResp;
-    if (userPostDTO.isPresent()) {
-      apiResp = ApiResponse.<UserPostDTO>builder() //
+    return ApiResponse.<UserPostDTO>builder() //
           .status(Syscode.OK)
-          .data(userPostDTO.get()) //
+          .data(userPostDTO) //
           .build();
-    } else {
-      apiResp = ApiResponse.<UserPostDTO>builder() //
-          .status(Syscode.NOTFOUND)
-          .data(null) //
-          .build();
-    }
-    return ResponseEntity.ok(apiResp);
     // return ResponseEntity.noContent().build(); // http status 204
   }
 
   //gov 指定要某一個user 的comment 拎哂出來
   @Override
-  public  UserPostDTO getUserCommentDTO(int userId) {
-      
+  public UserPostDTO getUserCommentDTO(int userId) {
+    
     return null;
   }
 
