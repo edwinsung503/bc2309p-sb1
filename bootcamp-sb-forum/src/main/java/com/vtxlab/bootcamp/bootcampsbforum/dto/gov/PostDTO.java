@@ -7,7 +7,7 @@ import lombok.Getter;
 @Builder
 public class PostDTO {
   
-  private int id ;
+  private int id ; //Post ID
   private String title;
   
 }

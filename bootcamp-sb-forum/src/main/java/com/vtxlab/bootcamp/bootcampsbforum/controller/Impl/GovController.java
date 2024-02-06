@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.vtxlab.bootcamp.bootcampsbforum.controller.GovOperation;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.CommentDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.UserCommentDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.UserPostDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.mapper.GovMapper;
@@ -35,10 +36,15 @@ public class GovController implements GovOperation {
   @Override
   public ResponseEntity<ApiResponse<UserPostDTO>> getUserPostDTO(int userId) {
     Optional<UserPostDTO> userPostDTO = userService.getUsers().stream() //
+        //This gets a stream of users from the user service.
         .filter(e -> e.getId() == userId) //
+        //This filters the stream to only include the user matching the userId that was passed in.
         .map(e -> {
           List<Post> posts = postService.getPosts();
           return GovMapper.map(e, posts);
+        //This transforms the filtered user into a UserPostDTO object. 
+        //It does this by first retrieving a list of posts from the postService. 
+        //Then, it uses the GovMapper.map method to transform the user and their associated posts into a UserPostDTO.
         }).findFirst();
 
     ApiResponse<UserPostDTO> apiResp;
@@ -57,17 +63,10 @@ public class GovController implements GovOperation {
     // return ResponseEntity.noContent().build(); // http status 204
   }
 
-
-
   //gov 指定要某一個user 的comment 拎哂出來
   @Override
-  public UserPostDTO getUserCommentDTO(int userId) {
-    Optional<UserPostDTO> userPostDTO = userService.getUsers().stream() //
-        .filter(e -> e.getId() == userId) //
-        .map(e -> {
-          List<Comment> comments = commentService.getPosts();
-          return GovMapper.map(e, comments);
-        }).findFirst();
+  public  UserPostDTO getUserCommentDTO(int userId) {
+      
     return null;
   }
 
