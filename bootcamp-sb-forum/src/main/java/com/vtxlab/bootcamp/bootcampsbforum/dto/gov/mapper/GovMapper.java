@@ -10,6 +10,8 @@ import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Comment;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Post;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
 
+//if need instance varaible -> change to instance method -> @Component -> Bean -> Spring Context
+
 public class GovMapper {
   //map 返自身object 
   public static UserPostDTO map(User user, List<Post> posts) {

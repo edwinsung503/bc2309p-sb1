@@ -8,4 +8,17 @@ api:
       users: "/users"
       posts: "/posts"
       comments: "/comments"
-  
+
+database: 
+  postgres: "db_2309p_forum"
+
+spring.datasource:
+  driverClassName: "org.hibernate.dialect.PostgreSQLDialect"
+  url: "jdbc:Mysql://localhost:3306/${database.postgres}"
+  #url: "jdbc:postgresql://localhost:5432/db_2309p"
+  username: "root"
+  password: "admin1234"
+
+spring.jpa:
+  show-sql: true
+  hibernate.ddl-auto: update # update

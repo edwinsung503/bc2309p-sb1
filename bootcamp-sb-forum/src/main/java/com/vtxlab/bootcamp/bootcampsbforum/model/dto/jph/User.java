@@ -22,7 +22,7 @@ public class User {
   private int id ;
   private String name;
   private String email;
-  private Address address ;
+  private Address address ; // 1個address if 多個1個會有 List<Address> address
   private String phone ;
   private String website;
   private Company compay;
@@ -47,6 +47,9 @@ public class User {
   public static class Company {
 
     private String name;
+    private String catchPhrase;
+    private String cBusinessService;
+
   }
 
 

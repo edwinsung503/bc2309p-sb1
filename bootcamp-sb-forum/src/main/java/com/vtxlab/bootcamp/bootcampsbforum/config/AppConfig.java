@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class AppConfig {
   
-  @Bean
+  @Bean // 可以重用的bean
   RestTemplate restTemplate(){
     return new RestTemplate();
   }

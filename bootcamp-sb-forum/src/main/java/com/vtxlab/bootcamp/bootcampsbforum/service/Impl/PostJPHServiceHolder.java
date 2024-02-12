@@ -3,6 +3,7 @@ package com.vtxlab.bootcamp.bootcampsbforum.service.Impl;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -22,10 +23,13 @@ public class PostJPHServiceHolder implements PostService {
     @Value("${api.jsonplaceholder.endpoints.posts}")
     private String postsUri;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     @Override
     public List<Post> getPosts(){
 
-      RestTemplate restTemplate = new RestTemplate();
+      //RestTemplate restTemplate = new RestTemplate();
       String url = BcUtil.getUrl(Scheme.HTTPS, domain, postsUri);
 
       Post[] posts = restTemplate.getForObject(url, Post[].class);

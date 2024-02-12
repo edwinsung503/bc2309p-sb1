@@ -3,6 +3,7 @@ package com.vtxlab.bootcamp.bootcampsbforum.service.Impl;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -21,10 +22,13 @@ public class CommentJPHServiceHolder implements CommentService {
   @Value("${api.jsonplaceholder.endpoints.comments}")
   private String commentsUri;
 
+  @Autowired
+  private RestTemplate restTemplate;
+
   @Override
   public List<Comment> getComments(){
 
-    RestTemplate restTemplate = new RestTemplate();
+    //RestTemplate restTemplate = new RestTemplate();
       String url = BcUtil.getUrl(Scheme.HTTPS, domain, commentsUri);
 
       Comment[] comments = restTemplate.getForObject(url, Comment[].class);
