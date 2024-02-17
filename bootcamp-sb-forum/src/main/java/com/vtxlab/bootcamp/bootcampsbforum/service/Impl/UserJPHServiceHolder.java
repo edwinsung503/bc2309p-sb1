@@ -12,6 +12,7 @@ import com.vtxlab.bootcamp.bootcampsbforum.infra.BcUtil;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.Scheme;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
 import com.vtxlab.bootcamp.bootcampsbforum.service.UserService;
+import com.vtxlab.bootcamp.bootcampsbforum.resository.UserRespository;
 
 @Service  
 public class UserJPHServiceHolder implements UserService{
@@ -24,6 +25,9 @@ public class UserJPHServiceHolder implements UserService{
 
   @Autowired
   private RestTemplate restTemplate;
+
+  @Autowired
+  private UserRespository userRespository;
 
   @Override
   public List<User> getUsers(){
@@ -44,6 +48,18 @@ public class UserJPHServiceHolder implements UserService{
     //array to List
     return Arrays.stream(users)
       .collect(Collectors.toList());
+  }
+  @Override
+  public List<com.vtxlab.bootcamp.bootcampsbforum.entity.User> getUsersByEmailOrPhoneOrderByEmailDesc(
+      String email, String phone) {
+    return userRespository.findByEmailOrPhoneOrderByEmailDesc(email, phone);
+  }
+
+  @Override
+  public List<com.vtxlab.bootcamp.bootcampsbforum.entity.User> getUsersByLatLngGtrThan(
+      String latitude, String longitude) {
+    return userRespository.findUsersByLatitudeLongitudeGtrThan(latitude,
+        longitude);
   }
 
 

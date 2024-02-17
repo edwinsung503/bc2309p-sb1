@@ -6,12 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "Posts")
+//@Entity
+//@Table(name = "Posts")
 public class Post {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  //@Id
+  //@GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   
   

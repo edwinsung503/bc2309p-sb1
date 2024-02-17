@@ -2,8 +2,12 @@ package com.vtxlab.bootcamp.bootcampsbforum.controller;
 
 import java.util.List;
 import javax.swing.Spring;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import com.vtxlab.bootcamp.bootcampsbforum.infra.ApiResponse;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
 
 public interface UserOperation {
@@ -29,4 +33,14 @@ public interface UserOperation {
   //the "id" parameter in the URL will be passed to 
   //the `getUser` method as the `userId` argument.
   
+  @GetMapping(value = "/users/email/{email}/phone/{phone}")
+  @ResponseStatus(value = HttpStatus.OK)
+  ApiResponse<List<com.vtxlab.bootcamp.bootcampsbforum.entity.User>> getUsersByEmailOrPhone(
+      @PathVariable String email, @PathVariable String phone);
+
+  @GetMapping(value = "/users/lat/{lat}/lng/{lng}")
+  @ResponseStatus(value = HttpStatus.OK)
+  ApiResponse<List<com.vtxlab.bootcamp.bootcampsbforum.entity.User>> getUsersByLatLngGtrThan(
+      @PathVariable(value = "lat") String latitude,
+      @PathVariable(value = "lng") String longitude);
 }

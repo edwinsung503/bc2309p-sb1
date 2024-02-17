@@ -6,13 +6,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name= "Comments")
+//@Entity
+//@Table(name= "Comments")
 public class Comment {
   
   
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  //@Id
+  //@GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   
 }

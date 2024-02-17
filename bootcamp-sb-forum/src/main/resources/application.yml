@@ -9,14 +9,15 @@ api:
       posts: "/posts"
       comments: "/comments"
 
-database: 
+database:
   postgres: "db_2309p_forum"
 
 spring.datasource:
   driverClassName: "org.hibernate.dialect.PostgreSQLDialect"
-  url: "jdbc:Mysql://localhost:3306/${database.postgres}"
-  #url: "jdbc:postgresql://localhost:5432/db_2309p"
-  username: "root"
+  #driverClassName: "org.postgresql.Driver"
+  #url: "jdbc:postgresql://localhost:5432/${database.postgres}"
+  url: 'jdbc:postgresql://localhost:5432/db_2309p_forum'
+  username: "postgres"
   password: "admin1234"
 
 spring.jpa:

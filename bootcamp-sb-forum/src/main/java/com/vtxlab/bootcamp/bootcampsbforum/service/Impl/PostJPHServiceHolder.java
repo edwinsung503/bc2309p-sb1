@@ -27,7 +27,7 @@ public class PostJPHServiceHolder implements PostService {
     private RestTemplate restTemplate;
 
     @Override
-    public List<Post> getPosts(){
+    public List<Post> getPosts(){// local method
 
       //RestTemplate restTemplate = new RestTemplate();
       String url = BcUtil.getUrl(Scheme.HTTPS, domain, postsUri);

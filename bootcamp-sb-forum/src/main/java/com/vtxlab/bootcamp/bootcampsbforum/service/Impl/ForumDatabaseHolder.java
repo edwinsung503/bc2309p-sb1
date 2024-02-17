@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.vtxlab.bootcamp.bootcampsbforum.entity.User;
 import com.vtxlab.bootcamp.bootcampsbforum.resository.UserRespository;
-import com.vtxlab.bootcamp.bootcampsbforum.service.ForumDatabase;
+import com.vtxlab.bootcamp.bootcampsbforum.service.ForumDatabaseService;
 
 @Service
-public class ForumDatabaseHolder implements ForumDatabase{
+public class ForumDatabaseHolder implements ForumDatabaseService{
 
   @Autowired
   private UserRespository userRespository;
@@ -18,6 +18,9 @@ public class ForumDatabaseHolder implements ForumDatabase{
     return userRespository.saveAll(users);
   }
 
-
+  @Override
+  public void deleteAllUsers() {
+    userRespository.deleteAll();
+  }
   
 }

@@ -1,8 +1,8 @@
 package com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,11 +21,12 @@ public class User {
 
   private int id ;
   private String name;
+  private String username;
   private String email;
   private Address address ; // 1個address if 多個1個會有 List<Address> address
   private String phone ;
   private String website;
-  private Company compay;
+  private Company company;
 
 
   @Getter
@@ -43,6 +44,7 @@ public class User {
       private String lng;
     }
   }
+
   @Getter
   public static class Company {
 
@@ -51,6 +53,5 @@ public class User {
     private String cBusinessService;
 
   }
-
 
 }
