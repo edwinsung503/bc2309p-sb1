@@ -11,8 +11,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.BcUtil;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.Scheme;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
+import com.vtxlab.bootcamp.bootcampsbforum.repository.UserRepository;
 import com.vtxlab.bootcamp.bootcampsbforum.service.UserService;
-import com.vtxlab.bootcamp.bootcampsbforum.resository.UserRespository;
 
 @Service  
 public class UserJPHServiceHolder implements UserService{
@@ -27,7 +27,7 @@ public class UserJPHServiceHolder implements UserService{
   private RestTemplate restTemplate;
 
   @Autowired
-  private UserRespository userRespository;
+  private UserRepository userRespository;
 
   @Override
   public List<User> getUsers(){

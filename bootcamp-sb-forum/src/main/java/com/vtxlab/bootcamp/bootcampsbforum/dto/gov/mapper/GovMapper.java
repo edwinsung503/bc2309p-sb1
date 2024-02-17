@@ -2,10 +2,10 @@ package com.vtxlab.bootcamp.bootcampsbforum.dto.gov.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.CommentDTO;
-import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.PostDTO;
-import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.UserCommentDTO;
-import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.UserPostDTO;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.CommentDTO;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.PostDTO;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.UserCommentDTO;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.UserPostDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Comment;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Post;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;

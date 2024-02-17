@@ -1,6 +1,7 @@
-package com.vtxlab.bootcamp.bootcampsbforum.dto.gov;
+package com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -12,6 +13,7 @@ public class UserPostDTO {
   private String username;
   private String email;
   private String phone;
+  @JsonProperty(value="posts")
   private List<PostDTO> postDTOs;
 }   
 //DTO: data transfer object

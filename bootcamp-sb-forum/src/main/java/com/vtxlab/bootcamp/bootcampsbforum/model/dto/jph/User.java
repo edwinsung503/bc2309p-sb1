@@ -50,7 +50,7 @@ public class User {
 
     private String name;
     private String catchPhrase;
-    private String cBusinessService;
+    private String bs;
 
   }
 

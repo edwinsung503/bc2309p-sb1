@@ -1,4 +1,4 @@
-package com.vtxlab.bootcamp.bootcampsbforum.resository;
+package com.vtxlab.bootcamp.bootcampsbforum.repository;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -7,8 +7,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.vtxlab.bootcamp.bootcampsbforum.entity.User;
 
-@Repository // -> Bean, similar to @Controller/@Service
-public interface UserRespository extends JpaRepository<User, Long>  {
+@Repository // -> Bean, similar to @Controller/ @Service
+public interface UserRepository extends JpaRepository<User, Long> {
   
   //Spring Boot (Hibernate -> implementation class for JPA Interface)  
   //Hibernate usage : According to the driver (yml) , 
@@ -48,6 +48,4 @@ public interface UserRespository extends JpaRepository<User, Long>  {
   // Real SQL - Product Specific (PostgreSQL)
   @Query(value = "select e.* from users e where e.zipcode = :zc", nativeQuery = true)
   List<User> findUsersByZipCode2(@Param("zc") String zipcode);
-
-
 }

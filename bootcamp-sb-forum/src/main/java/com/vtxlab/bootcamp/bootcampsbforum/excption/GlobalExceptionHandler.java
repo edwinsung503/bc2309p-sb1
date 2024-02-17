@@ -34,13 +34,15 @@ public class GlobalExceptionHandler {
   }
 
   //Exception 包埋runtime exception
-  //@ExceptionHandler(Exception.class) //要同佢講捉D什麼先會捉
-  //@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-  //public ApiResponse<Void> ExceptionHanlder(){
-  //  return ApiResponse.<Void>builder() //return 出去俾user
-  //    .status(Syscode.GENERAL_EXCEPTION)// 出左code 同message
-  //    .data(null)
-  //    .build();
-  //}
+  @ExceptionHandler(Exception.class) //要同佢講捉D什麼先會捉
+  @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+  public ApiResponse<String> ExceptionHanlder(Exception e){
+    return ApiResponse.<String>builder() //return 出去俾user
+      .status(Syscode.GENERAL_EXCEPTION)// 出左code 同message
+      .data(e.getMessage())
+      .build();
+  }
+
+  
   
 }

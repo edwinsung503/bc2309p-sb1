@@ -44,7 +44,7 @@ public class User implements Serializable {
   @Column(name = "COMP_CATCH_PRHASE")
   private String ccatchPhrase;
   @Column(name = "COMP_BUSINESS_SERVICE")
-  private String ccBusinessService;
+  private String bs;
 
 
 }
