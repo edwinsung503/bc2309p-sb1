@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.mapper.GovMapper;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.request.UserPostRequestDTO;
+import com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.BcUtil;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.Scheme;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
@@ -28,6 +30,9 @@ public class UserJPHServiceHolder implements UserService{
 
   @Autowired
   private UserRepository userRespository;
+
+  @Autowired
+  private GovMapper govMapper;
 
   @Override
   public List<User> getUsers(){
@@ -50,17 +55,24 @@ public class UserJPHServiceHolder implements UserService{
       .collect(Collectors.toList());
   }
   @Override
-  public List<com.vtxlab.bootcamp.bootcampsbforum.entity.User> getUsersByEmailOrPhoneOrderByEmailDesc(
+  public List<com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity> getUsersByEmailOrPhoneOrderByEmailDesc(
       String email, String phone) {
     return userRespository.findByEmailOrPhoneOrderByEmailDesc(email, phone);
   }
 
   @Override
-  public List<com.vtxlab.bootcamp.bootcampsbforum.entity.User> getUsersByLatLngGtrThan(
+  public List<com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity> getUsersByLatLngGtrThan(
       String latitude, String longitude) {
     return userRespository.findUsersByLatitudeLongitudeGtrThan(latitude,
         longitude);
   }
 
+  @Override
+  public UserEntity save(UserPostRequestDTO dto) {
+    //dto -> Entity 過程
+    UserEntity userEntity = GovMapper.map(dto);
+    return userRespository.save(userEntity);
+    
+  }
 
 }

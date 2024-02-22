@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
 import com.vtxlab.bootcamp.bootcampsbforum.service.ForumDatabaseService;
 import com.vtxlab.bootcamp.bootcampsbforum.service.PostService;
@@ -36,10 +37,9 @@ public class AppStartRunner implements CommandLineRunner{
     // clear DB
     //forumDatabaseService.deleteAllUsers();
 
-    List<com.vtxlab.bootcamp.bootcampsbforum.entity.User> userEntities =
-        users.stream() //
-            .map(e -> com.vtxlab.bootcamp.bootcampsbforum.entity.User.builder() //
-              .jphId(e.getId())
+    List<UserEntity> userEntities = users.stream() //
+            .map(e -> UserEntity.builder() //
+              //.jphId(e.getId())
               .name(e.getName())
               .username(e.getUsername())
               .website(e.getWebsite())

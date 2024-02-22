@@ -1,10 +1,8 @@
 package com.vtxlab.bootcamp.bootcampsbforum.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.RedisHelper;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.User2;
 import com.vtxlab.bootcamp.bootcampsbforum.service.RedisService;

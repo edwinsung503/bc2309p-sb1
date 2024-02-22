@@ -3,7 +3,7 @@ package com.vtxlab.bootcamp.bootcampsbforum.service.Impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.vtxlab.bootcamp.bootcampsbforum.entity.User;
+import com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity;
 import com.vtxlab.bootcamp.bootcampsbforum.repository.UserRepository;
 import com.vtxlab.bootcamp.bootcampsbforum.service.ForumDatabaseService;
 
@@ -14,7 +14,7 @@ public class ForumDatabaseHolder implements ForumDatabaseService{
   private UserRepository userRespository;
   
   @Override
-  public List<User> saveAllUsers(List<User> users){
+  public List<UserEntity> saveAllUsers(List<UserEntity> users){
     return userRespository.saveAll(users);
   }
 

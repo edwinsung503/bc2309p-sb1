@@ -1,13 +1,13 @@
 package com.vtxlab.bootcamp.bootcampsbforum.controller.Impl;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.vtxlab.bootcamp.bootcampsbforum.controller.UserOperation;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.request.UserPostRequestDTO;
+import com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.ApiResponse;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.Syscode;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
@@ -33,24 +33,33 @@ public class UserController implements UserOperation {
   //  .orElse(null);
   //}
   @Override
-  public ApiResponse<List<com.vtxlab.bootcamp.bootcampsbforum.entity.User>> getUsersByEmailOrPhone(
+  public ApiResponse<List<com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity>> getUsersByEmailOrPhone(
       String email, String phone) {
-    List<com.vtxlab.bootcamp.bootcampsbforum.entity.User> users =
+    List<com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity> users =
         userService.getUsersByEmailOrPhoneOrderByEmailDesc(email, phone);
-    return ApiResponse.<List<com.vtxlab.bootcamp.bootcampsbforum.entity.User>>builder() //
+    return ApiResponse.<List<com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity>>builder() //
         .status(Syscode.OK) //
         .data(users) //
         .build();
   }
 
   @Override
-  public ApiResponse<List<com.vtxlab.bootcamp.bootcampsbforum.entity.User>> getUsersByLatLngGtrThan(
+  public ApiResponse<List<com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity>> getUsersByLatLngGtrThan(
       String latitude, String longitude) {
-    List<com.vtxlab.bootcamp.bootcampsbforum.entity.User> users =
+    List<com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity> users =
         userService.getUsersByLatLngGtrThan(latitude, longitude);
-    return ApiResponse.<List<com.vtxlab.bootcamp.bootcampsbforum.entity.User>>builder() //
+    return ApiResponse.<List<com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity>>builder() //
         .status(Syscode.OK) //
         .data(users) //
+        .build();
+  }
+  
+  @Override
+  public ApiResponse<UserEntity> saveUserAndPosts(@RequestBody UserPostRequestDTO dto){
+    UserEntity userEntity = userService.save(dto);
+    return ApiResponse.<UserEntity>builder() //
+        .status(Syscode.OK) //
+        .data(userEntity) //
         .build();
   }
 }

@@ -1,12 +1,9 @@
 package com.vtxlab.bootcamp.bootcampsbforum.controller.Impl;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.vtxlab.bootcamp.bootcampsbforum.controller.GovOperation;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.mapper.GovMapper;
@@ -43,9 +40,9 @@ public class GovController implements GovOperation {
     // clear DB
     forumDatabaseService.deleteAllUsers();
 
-    List<com.vtxlab.bootcamp.bootcampsbforum.entity.User> userEntities =
+    List<com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity> userEntities =
         users.stream() //
-            .map(e -> com.vtxlab.bootcamp.bootcampsbforum.entity.User.builder() //
+            .map(e -> com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity.builder() //
               .jphId(e.getId())
               .name(e.getName())
               .username(e.getUsername())

@@ -2,20 +2,56 @@ package com.vtxlab.bootcamp.bootcampsbforum.dto.gov.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.request.UserPostRequestDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.CommentDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.PostDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.UserCommentDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.UserPostDTO;
+import com.vtxlab.bootcamp.bootcampsbforum.entity.PostEntity;
+import com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Comment;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Post;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 //if need instance varaible -> change to instance method -> @Component -> Bean -> Spring Context
 
 public class GovMapper {
+  //save 1 次可以拎到3個結構 user 同好多唔同的post
+  public static UserEntity map(UserPostRequestDTO dto) {
+    UserEntity userEntity = UserEntity.builder()
+          .name(dto.getName()) //
+          .username(dto.getUsername()) //
+          .email(dto.getEmail()) //
+          .phone(dto.getPhone()) //
+          .website(dto.getWebsite()) //
+          .street(dto.getStreet()) //
+          .suite(dto.getSuite()) //
+          .city(dto.getCity()) //
+          .zipcode(dto.getZipcode()) //
+          .addrLat(dto.getAddrLat()) //
+          .addrLng(dto.getAddrLong()) //
+          .cName(dto.getCompanyName()) //
+          .ccatchPhrase(dto.getCompanyCatchPhrase()) //
+          .bs(dto.getCompanyBusService()) //
+          .build();
+
+        List<PostEntity> postEntities = dto.getPosts().stream() //
+        .map(e -> {
+          PostEntity postEntity = PostEntity.builder() //
+              .title(e.getTitle()) //
+              .body(e.getBody()) //
+              .build();
+          postEntity.setUser(userEntity); // ManyToOne relationship -> FK
+          return postEntity;
+        }).collect(Collectors.toList());
+
+
+        userEntity.setPosts(postEntities);
+        return userEntity;
+
+  }
+
+
   //map 返自身object 
   public static UserPostDTO map(User user, List<Post> posts) {
     //入個userID 
@@ -42,8 +78,9 @@ public class GovMapper {
 
     return UserPostDTO.builder() //
         .id(user.getId()) // sets the user's ID.
-        .username(user.getName())//sets the user's name.
-        .email(user.getEmail()) //sets the user's email.
+        //.username(user.getName())//sets the user's name.
+        //.email(user.getEmail()) //sets the user's email.
+        .username(user.getUsername()).email(user.getEmail()) //
         .phone(user.getPhone()) //sets the user's phone number.
         .postDTOs(postDTOs) //sets the list of `PostDTO` objects associated with the user.
         .build();

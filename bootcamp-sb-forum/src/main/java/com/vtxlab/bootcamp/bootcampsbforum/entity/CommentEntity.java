@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 //@Entity
 //@Table(name= "Comments")
-public class Comment {
+public class CommentEntity {
   
   
   //@Id
