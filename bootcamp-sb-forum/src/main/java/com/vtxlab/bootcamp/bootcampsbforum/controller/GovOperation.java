@@ -11,6 +11,9 @@ import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.request.UserIdDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.UserPostDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.ApiResponse;
 
+//SOAP API -> XML -> SPRING
+//REST / RESTFUL ->JSON -> SPRING 
+
 @Validated // 1
 public interface GovOperation {
   //http://localhost:8080/gov/api/v2/user?id=1

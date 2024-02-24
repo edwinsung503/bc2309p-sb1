@@ -1,14 +1,16 @@
 package com.vtxlab.bootcamp.bootcampsbforum.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.vtxlab.bootcamp.bootcampsbforum.model.dto.User2;
+import com.vtxlab.bootcamp.bootcampsbforum.model.User2;
 
 public interface RedisOperation {
   
   @PostMapping(value = "/user2")
-  User2 createUser(@RequestParam String key, @RequestParam User2 user2) throws JsonProcessingException;
+  User2 createUser2(@RequestParam String key, @RequestBody User2 user)
+      throws JsonProcessingException;
 
 
 

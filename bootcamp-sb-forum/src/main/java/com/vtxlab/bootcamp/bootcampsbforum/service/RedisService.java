@@ -1,10 +1,10 @@
 package com.vtxlab.bootcamp.bootcampsbforum.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.vtxlab.bootcamp.bootcampsbforum.model.dto.User2;
+import com.vtxlab.bootcamp.bootcampsbforum.model.User2;
 
 public interface RedisService {
 
- User2 creatUser2(String key, User2 user2) throws JsonProcessingException;
-  
+  User2 createUser2(String key, User2 user) throws JsonProcessingException;
+
 }

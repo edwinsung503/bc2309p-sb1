@@ -52,7 +52,7 @@ public class UserEntity implements Serializable {
   private String ccatchPhrase;
   @Column(name = "COMP_BUSINESS_SERVICE")
   private String bs;
-
+  //做係因為可以一次過call user 同user 的post
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
   @JsonManagedReference //
   private List<PostEntity> posts = new ArrayList<>();

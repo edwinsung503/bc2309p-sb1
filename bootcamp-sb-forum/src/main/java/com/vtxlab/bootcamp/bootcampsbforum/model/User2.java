@@ -1,11 +1,11 @@
-package com.vtxlab.bootcamp.bootcampsbforum.model.dto;
+package com.vtxlab.bootcamp.bootcampsbforum.model;
 
 import lombok.Getter;
 
 @Getter
 public class User2 {
 
-  private int age;
   private String name;
-  
+  private int age;
+
 }

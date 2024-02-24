@@ -3,9 +3,11 @@ package com.vtxlab.bootcamp.bootcampsbforum.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vtxlab.bootcamp.bootcampsbforum.infra.RedisHelper;
+import io.netty.handler.codec.serialization.ObjectEncoder;
 
 //生2隻object , 如果起唔到object (Bean) 會死
 @Configuration

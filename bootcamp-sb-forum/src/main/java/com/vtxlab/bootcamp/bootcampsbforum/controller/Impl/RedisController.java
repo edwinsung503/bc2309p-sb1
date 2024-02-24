@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.vtxlab.bootcamp.bootcampsbforum.controller.RedisOperation;
-import com.vtxlab.bootcamp.bootcampsbforum.model.dto.User2;
+import com.vtxlab.bootcamp.bootcampsbforum.model.User2;
 import com.vtxlab.bootcamp.bootcampsbforum.service.RedisService;
 
 @RestController
@@ -16,8 +16,8 @@ public class RedisController implements RedisOperation{
   private RedisService redisService;
 
   @Override
-  public User2 createUser(String key, User2 user2) throws JsonProcessingException{
-    return redisService.creatUser2(key, user2);
+  public User2 createUser2(String key, User2 user) throws JsonProcessingException{
+    return redisService.createUser2(key, user);
 
   }
   

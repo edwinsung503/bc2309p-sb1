@@ -15,4 +15,7 @@ public class UserIdValidator implements ConstraintValidator<UserIdCheck, UserIdD
       return false;
     }
   }
+
+  //@Validated
+  //@UserIDCheck -> Request Param 
 }

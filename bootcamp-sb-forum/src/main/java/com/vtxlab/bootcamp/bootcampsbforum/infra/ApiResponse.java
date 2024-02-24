@@ -27,6 +27,11 @@ public class ApiResponse<T> {
     ApiResponseBuilder() {
 
     }
+    public ApiResponseBuilder<T> Ok() {
+      this.code = Syscode.OK.getCode();
+      this.message = Syscode.OK.getMessage();
+      return this;
+    }
 
     public ApiResponseBuilder<T> status(Syscode syscode) {
       this.code = syscode.getCode();
@@ -53,11 +58,11 @@ public class ApiResponse<T> {
       return new ApiResponse(this.code, this.message, this.data);
     }
 
-    public String toString() {
-      String var10000 = this.code;
-      return "ApiResponse.ApiResponseBuilder(code=" + var10000 + ", message="
-          + this.message + ", data=" + String.valueOf(this.data) + ")";
-    }
+    //public String toString() {
+    //  String var10000 = this.code;
+    //  return "ApiResponse.ApiResponseBuilder(code=" + var10000 + ", message="
+    //      + this.message + ", data=" + String.valueOf(this.data) + ")";
+    //}
   }
 
 }
