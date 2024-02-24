@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.mapper.GovMapper;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.request.UserPostRequestDTO;
@@ -35,7 +36,7 @@ public class UserJPHServiceHolder implements UserService{
   private GovMapper govMapper;
 
   @Override
-  public List<User> getUsers(){
+  public List<User> getUsers() throws RestClientException{
     
     //RestTemplate restTemplate = new RestTemplate();
     // It simplifies the communication with HTTP servers and handles the conversion of HTTP responses to Java objects. 

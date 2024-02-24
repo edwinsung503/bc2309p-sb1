@@ -12,14 +12,11 @@ import com.vtxlab.bootcamp.bootcampsbforum.service.ForumDatabaseService;
 import com.vtxlab.bootcamp.bootcampsbforum.service.PostService;
 import com.vtxlab.bootcamp.bootcampsbforum.service.UserService;
 
-@Component
+//@Component
 public class AppStartRunner implements CommandLineRunner{
   
   @Autowired
   UserService userService;
-
-  @Autowired
-  PostService postService;
 
   @Autowired
   ForumDatabaseService forumDatabaseService;

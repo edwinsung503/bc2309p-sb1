@@ -39,8 +39,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
   List<UserEntity> findUsersByZipCode(@Param("zc") String zipcode);
 
   // 2
-  @Query(
-      value = "select u from User u where CAST(u.addrLat AS double) > :lat and CAST(u.addrLng AS double) > :lng")
+  @Query(value = "select u from UserEntity u where CAST(u.addrLat AS double) > :lat and CAST(u.addrLng AS double) > :lng")
   List<UserEntity> findUsersByLatitudeLongitudeGtrThan(@Param("lat") String latitude,
       @Param("lng") String longitude);
 

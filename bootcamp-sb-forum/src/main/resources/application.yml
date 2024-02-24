@@ -13,8 +13,8 @@ database:
   postgres: "db_2309p_forum"
 
 spring.datasource:
-  driverClassName: "org.hibernate.dialect.PostgreSQLDialect"
-  #driverClassName: "org.postgresql.Driver"
+  #driverClassName: "org.hibernate.dialect.PostgreSQLDialect"
+  driverClassName: "org.postgresql.Driver"
   #url: "jdbc:postgresql://localhost:5432/${database.postgres}"
   url: 'jdbc:postgresql://localhost:5432/db_2309p_forum'
   username: "postgres"

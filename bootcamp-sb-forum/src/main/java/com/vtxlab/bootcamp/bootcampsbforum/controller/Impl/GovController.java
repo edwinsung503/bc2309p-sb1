@@ -43,7 +43,7 @@ public class GovController implements GovOperation {
     List<com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity> userEntities =
         users.stream() //
             .map(e -> com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity.builder() //
-              .jphId(e.getId())
+              //.jphId(e.getId())
               .name(e.getName())
               .username(e.getUsername())
               .website(e.getWebsite())
@@ -64,7 +64,7 @@ public class GovController implements GovOperation {
     System.out.println("userEntities=" + userEntities);
     
     // Save to DB
-    //forumDatabaseService.saveAllUsers(userEntities);
+    forumDatabaseService.saveAllUsers(userEntities);
 
     // Convert User DTO ->
     List<UserPostDTO> userPostDTOs = users.stream() //
@@ -79,6 +79,7 @@ public class GovController implements GovOperation {
         .build();
   }
 
+  @Override
   public ApiResponse<UserPostDTO> getUserPostDTO(UserIdDTO userIdDTO) {
 
     
@@ -97,8 +98,7 @@ public class GovController implements GovOperation {
         .orElseThrow( ()-> new RuntimeException()); // 揾唔到就throw 出去
 
     return ApiResponse.<UserPostDTO>builder() //
-          .status(Syscode.OK)
-          .data(userPostDTO) //
+          .status(Syscode.OK).data(userPostDTO) //
           .build();
     // return ResponseEntity.noContent().build(); // http status 204
   }

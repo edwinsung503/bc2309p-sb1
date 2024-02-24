@@ -2,19 +2,17 @@ package com.vtxlab.bootcamp.bootcampsbforum.dto.gov.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.request.UserPostRequestDTO;
-import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.CommentDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.PostDTO;
-import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.UserCommentDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.dto.gov.response.UserPostDTO;
 import com.vtxlab.bootcamp.bootcampsbforum.entity.PostEntity;
 import com.vtxlab.bootcamp.bootcampsbforum.entity.UserEntity;
-import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Comment;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.Post;
 import com.vtxlab.bootcamp.bootcampsbforum.model.dto.jph.User;
 
 //if need instance varaible -> change to instance method -> @Component -> Bean -> Spring Context
-
+@Component
 public class GovMapper {
   //save 1 次可以拎到3個結構 user 同好多唔同的post
   public static UserEntity map(UserPostRequestDTO dto) {
@@ -101,23 +99,23 @@ public class GovMapper {
   //gov 指定要某一個user 的comment 拎哂出來
 
   
-  public static UserCommentDTO map1(User user, List<Comment> comments) {
-    List<CommentDTO> commentDTOs = comments.stream() //
-        .filter(p -> p.getId() == user.getId() ) //
-       .map(p -> {
-          return CommentDTO.builder()
-            .body(p.getBody())
-          .build();
-        }).collect(Collectors.toList());
+  //public static UserCommentDTO map1(User user, List<Comment> comments) {
+  //  List<CommentDTO> commentDTOs = comments.stream() //
+  //      .filter(p -> p.getId() == user.getId() ) //
+  //     .map(p -> {
+  //        return CommentDTO.builder()
+  //         .body(p.getBody())
+  //        .build();
+  //      }).collect(Collectors.toList());
 
-    return UserCommentDTO.builder() //
-      .id(user.getId()) //
-      .username(user.getName())
-      .email(user.getEmail()) //
-      .phone(user.getPhone()) //
-      .commentDTOs(commentDTOs) //
-      .build();
-   }
+  //  return UserCommentDTO.builder() //
+  //    .id(user.getId()) //
+  //   .username(user.getName())
+  //    .email(user.getEmail()) //
+  //    .phone(user.getPhone()) //
+  //    .commentDTOs(commentDTOs) //
+  //    .build();
+  //}
 
 }
 
