@@ -28,6 +28,6 @@ public interface DataOperation {
         content = {@Content(schema = @Schema())})})
         
   @GetMapping(value = "/stock")
-  @ResponseStatus(value = HttpStatus.OK)
+  @ResponseStatus(value = HttpStatus.OK);
   
 }
