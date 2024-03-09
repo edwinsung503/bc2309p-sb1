@@ -20,5 +20,4 @@ public class CoinController {
     model.addAttribute("coinDataList", coinDataList);
     return "coin-data"; 
   }
-  
 }
